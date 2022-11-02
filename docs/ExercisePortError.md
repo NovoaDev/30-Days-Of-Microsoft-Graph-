@@ -3,24 +3,23 @@ In case someone gets the same thing that happens to me 😊.
 In my case **npx http-server** assign a different port than **8080** sometimes **8081**/**8082** depending on the ports it has busy.  This causes it to redirect to another service after getting the token and throwing an error.
 
 ## Error scenario
+Service up on **8081**  
+![DiferentPortNpx](https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/DiferentPortNpx.png)
 
-Service up on **8081** <br>
-<img align='right' src="https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/DiferentPortNpx.png" height="" width="300" alt="coding cat">
-
-Error when redirecting
-<img align='right' src="https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/Error8080.png" height="" width="300" alt="coding cat">
+Error when redirecting 
+![Error8080](https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/Error8080.png)
 
 ## My solution
- Manually assign a port that is free.
-
+Manually assign a port that is free.
  1. Modify **package.json**. 
-<img align='right' src="https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/PackageMod.png" height="" width="300" alt="coding cat">
+![PackageMod](https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/PackageMod.png)
 
  2. Modify redirection **aad.portal.azure** configuration.
-<img align='right' src="https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/SpaaadappMod.png" height="" width="300" alt="coding cat">
+![SpaaadappMod](https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/SpaaadappMod.png)
 
- 3. Modify **redirectUri** in archive auth.js.
-<img align='right' src="https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/AuthjsMod.png" height="" width="300" alt="coding cat">
+3. Modify **redirectUri** in archive auth.js.
+![AuthjsMod](https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/AuthjsMod.png)
 
 Raise the service again and it worked :P 
-<img align='right' src="https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/200OK.png" height="" width="300" alt="coding cat">
+
+![200OK](https://github.com/NovoaDev/30-Days-Of-Microsoft-Graph-/blob/main/docs/res/portIssue/200OK.png)
